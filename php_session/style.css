@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+}
+
+body > header {
+    padding: 15px;
+    background-color: darkgreen;
+    color: #fff;
+}
+
+nav {
+    text-align: end;
+    padding: 10px 15px;
+    background-color: #fff;
+    color: #222;
+}
+nav > a {
+    text-decoration: none;
+    color: inherit;
+    font-size: clamp(1rem, 1.3vw, 2rem);
+    font-weight: 700;
+}
+
+main > header {
+    margin: 2rem;
+}
+main > ul {
+    margin: 1rem;
+}
+main > ul > li {
+    font-size: clamp(1rem, 1.5vw, 3rem);
+    font-weight: 700;
+    list-style: none;
+}
+
+main > ul > li::before {
+    content: '\2022';
+    color: green;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+
+/* Styling for the page.php */
+main > #user-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: clamp(300px, 90vw, 1220px);
+    margin-inline: auto;
+    margin-block-start: 3rem;
+}
+
+main > #user-list > .user-box {
+    background-color: #fff;
+    flex: 1 1 200px;
+    height: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+main > #user-list > .user-box > .cover-photo {
+    height: 90px;
+    width: 95%;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+    background-color: #aaa;
+    border-radius: inherit;
+}
+
+main > #user-list > .user-box > .profile-photo {
+    background-color: #ccc;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    z-index: 2;
+    top: 70px;
+    left: calc(50% - 35px);
+    border: 2px solid #222;
+}
+
+main > #user-list > .user-box > p:nth-of-type(1) {
+    padding-block-start: 1.5rem;
+    font-weight: 700;
+}
