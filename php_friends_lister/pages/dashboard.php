@@ -15,7 +15,7 @@
         $balance = null;
 
         try{   
-            $connection = new mysqli($_SERVER["HTTP_HOST"], 'mlvnworks', "Agustin@12", "my_friends");
+            $connection = new mysqli("containers-us-west-72.railway.app",'root', "NwRz7MaIz80oJvoEcTWD", "railway","7974");
             $query = "SELECT username, bar_balance FROM members WHERE id=".$user["id"];
 
             $row = $connection->query($query);
@@ -291,6 +291,7 @@
             <div id="name-icon" class="datas"  data-text="<?php echo strtoupper($user["username"][0])?>">
             </div>
             <p><?php echo $user["username"]?></p>
+            <a href="../index.php">Log-out</a>
         </section>
         <section id="balance-area"> 
             <div>

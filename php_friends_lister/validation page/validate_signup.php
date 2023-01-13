@@ -11,7 +11,7 @@ if(isset($_POST["sign-up"])){
         $password = $_POST["password"];
 
         try{
-            $connection = new mysqli($_SERVER["HTTP_HOST"], 'mlvnworks', "Agustin@12", "my_friends");
+            $connection = new mysqli("containers-us-west-72.railway.app",'root', "NwRz7MaIz80oJvoEcTWD", "railway","7974");
 
             $query = "INSERT INTO members(first_name, last_name, age, username, password, phone, bar_balance)
             VALUES ('$firstName','$lastName', $age,'$username','$password',$phone,0)";
@@ -21,12 +21,12 @@ if(isset($_POST["sign-up"])){
             $_SESSION['signedUp'] = ["firstName" => $firstName, "signedUp" => true];
             $connection->close();
         }catch(Exception $rr){
+            print_r($rr);
             $_SESSION['signedUp'] = ["firstName" => $firstName, "signedUp" => false];
         };
-
         
-        header("Location:../proccess_result.php");
+        header("Location:../pages/proccess_result.php");
     }else{
-        header("Location:../signup.php");
+        header("Location:../pages/signup.php");
     }
 ?>

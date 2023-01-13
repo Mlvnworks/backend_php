@@ -5,7 +5,7 @@
         $password = $_POST["password"];
 
         try{
-            $connection = new mysqli($_SERVER["HTTP_HOST"], 'mlvnworks', "Agustin@12", "my_friends");
+            $connection = new mysqli("containers-us-west-72.railway.app",'root', "NwRz7MaIz80oJvoEcTWD", "railway","7974");
             $query = "SELECT id, username, password FROM members";
             $result = $connection->query($query);
             $userLogInData = [];
@@ -30,14 +30,15 @@
 
             if(count($target) <= 0){
                 $_SESSION["loginProcess"] = false;
-                header("Location:../login.php");
+                header("Location:../index.php");
             }else{
                 setcookie("user", json_encode(array_values($target)[0]), time() + 60 * 60 * 24 * 15,"/");
                 header("Location:../pages/dashboard.php");
             }
 
         }catch(Exception $err){
-            
+            $_SESSION["loginProcess"] = false;
+            header("Location:../index.php");
         }
     }
 ?>

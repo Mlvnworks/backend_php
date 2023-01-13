@@ -6,7 +6,7 @@ session_start();
         
 
         try{
-            $connection = new mysqli($_SERVER["HTTP_HOST"], 'mlvnworks', "Agustin@12", "my_friends");
+            $connection = new mysqli("containers-us-west-72.railway.app",'root', "NwRz7MaIz80oJvoEcTWD", "railway","7974");
             
             function getCurrentBalance(){
                 global $connection,$userId;
@@ -17,7 +17,7 @@ session_start();
                 
             } 
 
-            
+
             // var_dump($_POST["action"]);
             $toUpdate = $_POST["action"] === "1" ? (getCurrentBalance()["bar_balance"] * 1) + $inputAmount :(getCurrentBalance()["bar_balance"] * 1) - $inputAmount ;
 
@@ -28,11 +28,14 @@ session_start();
             $connection->close();
 
         }catch(Exception $err){
+
             $_SESSION["updateAmountError"] = true;
+
         }
 
     }else{
         $_SESSION["updateAmountError"] = true;
+
     }
 
     header("Location:../pages/dashboard.php");
